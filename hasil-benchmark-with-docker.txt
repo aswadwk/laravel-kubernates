@@ -1,0 +1,42 @@
+This is ApacheBench, Version 2.3 <$Revision: 1913912 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Caddy
+Server Hostname:        127.0.0.1
+Server Port:            8000
+
+Document Path:          /
+Document Length:        34086 bytes
+
+Concurrency Level:      100
+Time taken for tests:   5.050 seconds
+Complete requests:      1061
+Failed requests:        0
+Total transferred:      37374966 bytes
+HTML transferred:       36199332 bytes
+Requests per second:    210.11 [#/sec] (mean)
+Time per request:       475.938 [ms] (mean)
+Time per request:       4.759 [ms] (mean, across all concurrent requests)
+Transfer rate:          7227.95 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.0      0       6
+Processing:    75  438 155.9    405     921
+Waiting:       72  437 155.7    404     913
+Total:         75  438 155.6    405     921
+
+Percentage of the requests served within a certain time (ms)
+  50%    405
+  66%    470
+  75%    516
+  80%    547
+  90%    680
+  95%    771
+  98%    832
+  99%    845
+ 100%    921 (longest request)

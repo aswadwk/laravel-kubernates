@@ -4,8 +4,8 @@ metadata:
   name: laravel-app-deployment
   namespace: backend
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
+  replicas: 2
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: laravel-app
@@ -19,11 +19,11 @@ spec:
           image: aswadwk/laravel-app:latest
           resources:
             requests:
-              memory: "500Mi"
-              cpu: "250m"
+              memory: "256Mi"
+              cpu: "200m"
             limits:
-              memory: "600Mi"
-              cpu: "500m"
+              memory: "512Mi"
+              cpu: "400m"
           ports:
             - containerPort: 8000
 
@@ -34,13 +34,13 @@ metadata:
   name: laravel-service
   namespace: backend
 spec:
-  # type: LoadBalancer
+  type: LoadBalancer
   selector:
     app: laravel-app
   ports:
     - port: 8080 # Service port
       targetPort: 8000 # Container port
-      # nodePort: 30080 # Node port Otomatis membuat ClusterIP juga
+      nodePort: 30080 # Node port Otomatis membuat ClusterIP juga
 
 ---
 apiVersion: autoscaling/v2
@@ -56,8 +56,8 @@ spec:
   # selector:
   #   matchLabels:
   #     app: laravel-app
-  minReplicas: 2
-  maxReplicas: 6
+  minReplicas: 4
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
